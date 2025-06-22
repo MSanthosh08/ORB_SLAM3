@@ -221,7 +221,8 @@ int main(int argc, char **argv)
     }
     // Stop all threads
     SLAM.Shutdown();
-
+    std::cout << "Waiting 10 seconds to allow Pangolin viewer to stay visible..." << std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(10));
 
     // Save camera trajectory
     if (bFileName)

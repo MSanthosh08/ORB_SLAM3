@@ -1,8 +1,8 @@
 # Full Guide on Visual Odometry & SLAM for mobile robotics
 
-**Author**by SANTHOSH M
+by SANTHOSH M
 
-**ID**URK23RA3005
+URK23RA3005
 
 # 1) Installation of Docker engine on linux (Ubuntu)
 
@@ -25,6 +25,13 @@ docker run hello-world # or sudo docker run hello-world
 ```
 
 # 2) Building the image
+
+### you can also pull the image from my docker hub (you can avoid building process, if you pulled ) 
+```bash
+docker pull msanthosh08/orbslam3:v1
+``` 
+after pulling you can run the container.(steps are given below)
+# or
 
 ## i) Create a file called “Dockerfile” and paste the below in the file.
 
@@ -195,7 +202,8 @@ unzip rgbd_dataset_freiburg3_long_office_household_validation.tgz -d fr3-o-s/
 # 4) Run Simulation
 
 ## i) EuRoC
-
+1. Open the script "euroc_examples.sh" in the root of the project. Change directory where the dataset has been uncompressed.
+2. Execute the following script to process all the sequences with all sensor configurations:
 ```bash
 cd ~/Dev/ORB_SLAM3
 chmod +x euroc_examples.sh
@@ -203,7 +211,8 @@ chmod +x euroc_examples.sh
 ```
 
 ## ii) TUM RGB-D
-
+1. Open the script "RGB-D_examples.sh" in the root of the project. Change directory where the dataset has been uncompressed.
+2. Execute the following script to process all the sequences with all sensor configurations:
 ```bash
 cd ~/Dev/ORB_SLAM3
 chmod +x RGB-D_examples.sh
@@ -213,7 +222,9 @@ chmod +x RGB-D_examples.sh
 # 5) Validation: Estimate vs Ground Truth
 
 ## i) EuRoC
+EuRoC provides ground truth for each sequence in the IMU body reference. As pure visual executions report trajectories centered in the left camera, we provide in the "evaluation" folder the transformation of the ground truth to the left camera reference. Visual-inertial trajectories use the ground truth from the dataset.
 
+Execute the following script to process sequences and compute the RMS ATE:
 ```bash
 cd ~/Dev/ORB_SLAM3
 chmod +x euroc_eval_examples.sh
@@ -223,7 +234,9 @@ chmod +x euroc_eval_examples.sh
 Check: `MH01_stereoi.pdf`, `V102_stereoi.pdf`
 
 ## ii) TUM RGB-D
+In TUM-RGB-D ground truth is only available in the room where all sequences start and end. As a result the error measures the drift at the end of the sequence.
 
+Execute the following script to process sequences and compute the RMS ATE:
 ```bash
 cd ~/Dev/ORB_SLAM3
 chmod +x RGB-D_eval_examples.sh

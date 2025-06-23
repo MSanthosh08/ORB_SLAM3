@@ -1,8 +1,8 @@
 # Full Guide on Visual Odometry & SLAM for mobile robotics
 
-by SANTHOSH M
+**Author :** SANTHOSH M
 
-URK23RA3005
+**Reg No :** URK23RA3005
 
 # 1) Installation of Docker engine on linux (Ubuntu)
 
@@ -128,6 +128,28 @@ docker build -t orbslam3:v1 -f Dockerfile .
 ```
 
 You will see output like the example shown...
+```bash
+[+] Building 323.8s (11/11) FINISHED                             docker:default
+ => [internal] load build definition from Dockerfile                       0.0s
+ => => transferring dockerfile: 2.39kB                                     0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:20.04            1.6s
+ => [internal] load .dockerignore                                          0.0s
+ => => transferring context: 2B                                            0.0s
+ => [1/7] FROM docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8f  0.0s
+ => CACHED [2/7] RUN echo "deb http://security.ubuntu.com/ubuntu xenial-s  0.0s
+ => CACHED [3/7] RUN apt-get update && apt-get install -y     build-essen  0.0s
+ => CACHED [4/7] WORKDIR /root/Dev                                         0.0s
+ => CACHED [5/7] RUN git clone https://github.com/opencv/opencv.git &&     0.0s
+ => [6/7] RUN cd /root/Dev &&     git clone https://github.com/stevenlov  46.6s
+ => [7/7] RUN cd /root/Dev &&     git clone https://github.com/UZ-SLAML  256.4s
+ => exporting to image                                                    19.3s 
+ => => exporting layers                                                   19.3s 
+ => => writing image sha256:c316e6d6031e71d4ceac1949a6af45cc8dd39539823ef  0.0s 
+ => => naming to docker.io/library/orbslam3                                0.0s 
+                                                                                
+View build details: docker-desktop://dashboard/build/default/default/lgkmpcm4e60r0s0bf0jy1a40c
+
+```
 
 ## iii) Run container for checking/demo
 
@@ -165,7 +187,7 @@ xeyes
 
 # 3) Download test datasets in your host machine
 
-## i) EuRoC MH01 and VH02
+## i) EuRoC MH01 and V102
 
 ```bash
 cd ~
